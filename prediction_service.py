@@ -5,14 +5,12 @@ def evaluate_flight_weather_risk(lat: float, lon: float):
     """
     Fetches real-time weather data and evaluates operational risks for flights.
     """
-    # Fetch live weather from your weather service module
     weather = get_live_weather(lat, lon)
     
     wind_speed = weather.get("wind_speed_kmh", 0.0)
     visibility = weather.get("visibility_km", 10.0)
     temperature = weather.get("temperature_c", 25.0)
     
-    # Risk evaluation logic based on meteorological conditions
     risk_level = "Low"
     if wind_speed > 30.0 or visibility < 5.0:
         risk_level = "High"
